@@ -1,9 +1,4 @@
 <h1>Log In</h1>
-<% if @errors %>
-<% @errors.each do |error| %>
-<%= error %>
-<% end %>
-<% end %>
 
 <%= form_tag '/login' do %>
 	Username: <%= text_field_tag :username %><br>
