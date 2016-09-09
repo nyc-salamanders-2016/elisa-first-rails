@@ -1,0 +1,12 @@
+This is an index page!<br>
+<% flash.each do |name, msg| -%>
+  <%= content_tag :div, msg, class: name %>
+<% end -%>
+
+<% if current_user %>
+	<%= link_to 'Log Out', logout_path %>
+<% else %>
+	<%= link_to "Create Account", users_new_path %><br>
+	<%= link_to 'Log In', login_path %><br>
+<% end %>
+
