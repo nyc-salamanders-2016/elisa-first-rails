@@ -7,6 +7,8 @@ Rails.application.routes.draw do
   get '/users/new' => 'users#new'
   post '/users/new' => 'users#create'
 
-  get '/posts' => 'posts#index'
-  get '/posts/new' => 'posts#create'
+  resources :posts
+  # get '/posts' => 'posts#index'
+  # get '/posts/:id' => 'posts#show'
+  # get '/posts/new' => 'posts#create'
 end
