@@ -2,6 +2,6 @@
 <%= form_for :post, url: '/posts', :html => {:class => 'new-post-form'} do |f| %>
   Title: <%= f.text_field :title %><br>
   Body: <%= f.text_area :body %><br>
-  <%= f.hidden_field :user_id, :value => current_user.id %>
+  <%= hidden_field(:user_id, current_user.id) %>
   <%= f.submit "Submit" %>
 <% end %>
