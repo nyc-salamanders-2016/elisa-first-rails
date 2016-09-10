@@ -7,7 +7,7 @@ class ApplicationController < ActionController::Base
   helper_method :current_user
 
   def require_user
-    redirect_to '/users/login' unless current_user
+    redirect_to '/login' unless current_user
   end
 
 end

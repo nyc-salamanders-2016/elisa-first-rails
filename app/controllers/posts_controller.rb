@@ -12,15 +12,37 @@ class PostsController < ApplicationController
     require_user
     post = Post.new(post_params)
     if post.save
-      redirect_to "/posts/#{post.id}"
+      redirect_to posts_path
     else
-      @errors = post.errors.full_messages
-      redirect_to '/posts/new'
+      render 'new'
     end
   end
 
   def show
     @post = Post.find(params[:id])
+    @user = @post.user
+  end
+
+  def edit
+    require_user
+    @post = Post.find(params[:id])
+  end
+
+  def update
+    require_user
+    @post = Post.find(params[:id])
+    if @post.update_attributes(post_params)
+      redirect_to @post
+    else
+      render 'edit'
+    end
+  end
+
+  def destroy
+    require_user
+    post = Post.find(params[:id])
+    post.destroy
+    redirect_to posts_path
   end
 
   private

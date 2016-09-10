@@ -1,2 +1,12 @@
 <h2><%= @post.title %></h2>
+<p>
+by: <%= @user.username %><br>
+posted: <%= @post.created_at %>
+</p>
 <p><%= @post.body %></p>
+<% if current_user && @post.user_id == current_user.id %>
+<p>
+  <%= link_to 'Edit', edit_post_path %><br>
+  <%= link_to 'Delete Post', {:controller=>:posts,:action=>:destroy, :id=>@post}, :method=>:delete %>
+</p>
+<% end %>
